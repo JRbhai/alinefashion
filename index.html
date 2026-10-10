@@ -151,8 +151,8 @@ th,td{padding:.5rem .6rem;border-bottom:1px solid rgba(0,0,0,.08);text-align:cen
   <p class="text-stone-600 text-sm mb-8">We make reality not just promises, driving Aline toward a national menswear footprint.</p>
   <div class="glass-d p-6 max-w-sm mx-auto mb-5"><h4 class="font-bold text-lg">Jagdip Sahni</h4><p class="text-xs text-stone-600 uppercase tracking-widest mt-1">Founder, Managing Director & Operator</p></div>
   <div class="grid sm:grid-cols-2 gap-5 max-w-xl mx-auto">
-   <div class="glass-d p-6"><h4 class="font-bold text-lg">Name Here</h4><p class="text-xs text-stone-600 uppercase tracking-widest mt-1">Design Head</p></div>
-   <div class="glass-d p-6"><h4 class="font-bold text-lg">Name Here</h4><p class="text-xs text-stone-600 uppercase tracking-widest mt-1">Marketing Head</p></div>
+   <div class="glass-d p-6"><h4 class="font-bold text-lg"></h4><p class="text-xs text-stone-600 uppercase tracking-widest mt-1">Design Head</p></div>
+   <div class="glass-d p-6"><h4 class="font-bold text-lg">Chandan Sahni</h4><p class="text-xs text-stone-600 uppercase tracking-widest mt-1">Co-Founder & Marketing Head</p></div>
   </div>
  </div>
 </section>
@@ -191,8 +191,8 @@ th,td{padding:.5rem .6rem;border-bottom:1px solid rgba(0,0,0,.08);text-align:cen
 
 <div id="shw" class="hidden fixed inset-0 z-[85]" aria-hidden="true">
  <div id="sbd" class="absolute inset-0" style="background:rgba(15,27,45,.4);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .4s"></div>
- <div id="sh" role="dialog" aria-modal="true" class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-xl rounded-t-[28px] overflow-hidden" style="height:92vh;transform:translateY(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(26px) saturate(190%);backdrop-filter:blur(26px) saturate(190%);box-shadow:0 -10px 50px rgba(32,56,88,.3)">
-  <button id="shx" aria-label="Close" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/10 hover:bg-black/20 text-xl leading-none">×</button>
+ <div id="sh" role="dialog" aria-modal="true" class="absolute bottom-0 inset-x-0 mx-auto w-full max-w-xl rounded-t-[28px] overflow-hidden" style="height:92vh;transform:translateY(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);background:radial-gradient(70% 35% at 0% 0%,rgba(32,56,88,.3),transparent 70%),radial-gradient(60% 40% at 100% 25%,rgba(91,127,176,.35),transparent 70%),radial-gradient(60% 35% at 20% 100%,rgba(122,162,214,.35),transparent 70%),linear-gradient(160deg,#dbe6f4,#c6d6ee 50%,#e6edf8);border-top:1px solid rgba(255,255,255,.85);box-shadow:0 -10px 50px rgba(32,56,88,.3)">
+  <button id="shx" aria-label="Close" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full text-xl leading-none" style="background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)">×</button>
   <div id="shb" class="h-full overflow-y-auto overscroll-contain px-6 pt-4 pb-10" style="overscroll-behavior:contain"></div>
  </div>
 </div>
@@ -307,17 +307,17 @@ function openSheet(i){
    <button data-a="next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white w-8 h-8 rounded-full">›</button>
    <div class="dots absolute bottom-3 inset-x-0 flex justify-center gap-1.5"></div>
   </div>
-  <p class="text-xs text-stone-500 mt-5">Available in ${x.c.length} colors</p>
+  <div class="glass p-5 mt-5"><p class="text-xs text-stone-500">Available in ${x.c.length} colors</p>
   <div class="flex items-center gap-3 mt-2"><div class="flex gap-2">${x.c.map((c,k)=>`<button class="sw ${k==ci?'on':''}" data-a="color" data-k="${k}" style="background:${HEX[c]}" title="${c}"></button>`).join('')}</div><b class="cname text-sm">${x.c[ci]}</b></div>
   <div class="flex justify-between text-xs text-stone-500 mt-5 mb-2"><span>Size (Indian sizing)</span><button data-a="guide" class="underline">Size Guide</button></div>
   <div class="grid grid-cols-4 gap-2">${['XS','S','M','L'].map(z=>`<button class="chip" data-a="size" data-z="${z}">${z}</button>`).join('')}</div>
-  <div class="grid gap-2 mt-5"><button data-a="order" class="btn w-full">Pre-Order via WhatsApp</button><button data-a="email" class="btn ln w-full">Pre-Order via Email</button></div>
-  <div class="mt-8 space-y-4 text-sm">
+  <div class="grid gap-2 mt-5"><button data-a="order" class="btn w-full">Pre-Order via WhatsApp</button><button data-a="email" class="btn ln w-full">Pre-Order via Email</button></div></div>
+  <div class="glass p-5 mt-6 space-y-4 text-sm">
    ${ft('🧵','Threads',x.t)}${ft('🌿','Origin',x.o)}
    ${ft('📏','Indian fit','Made on Indian body sizes, not UK or US sizes. Check the Size Guide above.')}
   </div>
   <h4 class="font-semibold mt-8 mb-3">The Aline Difference</h4>
-  <div class="space-y-4 text-sm">
+  <div class="glass p-5 space-y-4 text-sm">
    ${ft('🎯','Honest pricing','No inflated brand markups, no logo tax.')}
    ${ft('🚚','Delivery in 3-10 days','We share delivery details when we confirm your order.')}
    ${ft('↩️','14-day return &amp; exchange','Subject to terms: unworn, unwashed, with tags.')}
