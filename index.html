@@ -43,6 +43,7 @@ body{font-family:'Inter Tight','Inter',sans-serif;background:linear-gradient(160
 .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s,transform .8s}
 .card:hover .slide{transform:scale(1.04)}.slide.z{transform:scale(1.6);transform-origin:50% 25%}.card:hover .slide.z{transform:scale(1.66)}
 .tint{position:absolute;inset:0;mix-blend-mode:multiply;opacity:.25;pointer-events:none;transition:background .5s}
+#shb .imgb{height:min(68vh,32rem)!important;background:rgba(255,255,255,.4)!important}#shb .slide,#shb .slide.z{object-fit:contain;transform:none!important}
 .sw{width:26px;height:26px;border-radius:9999px;border:2px solid #fff;box-shadow:0 0 0 1px #c9c6bd;cursor:pointer;transition:.2s}
 .sw.on{box-shadow:0 0 0 2px var(--ink)}
 .chip{border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:6px 0;font-size:12px;background:rgba(255,255,255,.6);transition:.2s}
@@ -160,9 +161,9 @@ th,td{padding:.5rem .6rem;border-bottom:1px solid rgba(0,0,0,.08);text-align:cen
 <section id="testimonials" class="max-w-6xl mx-auto px-4 pb-20">
  <h3 class="rv gh glass text-3xl md:text-4xl font-semibold tracking-tight mb-8">What Early Customers Say</h3>
  <div class="grid md:grid-cols-3 gap-6 text-sm text-stone-700">
-  <div class="rv glass p-6"><p class="text-amber-500 mb-2">★★★★★</p><p class="mb-3">"Fabric quality feels far above the price. Sample review - replace with real one."</p><p class="font-semibold text-black">- Customer Name, Patna</p></div>
-  <div class="rv glass p-6"><p class="text-amber-500 mb-2">★★★★★</p><p class="mb-3">"The fit is perfect and WhatsApp ordering was easy. Sample review."</p><p class="font-semibold text-black">- Customer Name, Delhi</p></div>
-  <div class="rv glass p-6"><p class="text-amber-500 mb-2">★★★★★</p><p class="mb-3">"No logo tax, just honest quality. Sample review."</p><p class="font-semibold text-black">- Customer Name, Kolkata</p></div>
+  <div class="rv glass p-6"><p class="text-amber-500 mb-2">★★★★★</p><p class="mb-3">"Fabric quality feels far above the price. Sample review - replace with real one."</p><p class="font-semibold text-black">- Aman, Patna</p></div>
+  <div class="rv glass p-6"><p class="text-amber-500 mb-2">★★★★★</p><p class="mb-3">"The fit is perfect and WhatsApp ordering was easy. Sample review."</p><p class="font-semibold text-black">- shivam, Delhi</p></div>
+  <div class="rv glass p-6"><p class="text-amber-500 mb-2">★★★★★</p><p class="mb-3">"No logo tax, just honest quality. Sample review."</p><p class="font-semibold text-black">- Rohit Gupta, Kolkata</p></div>
  </div>
 </section>
 
@@ -230,13 +231,13 @@ th,td{padding:.5rem .6rem;border-bottom:1px solid rgba(0,0,0,.08);text-align:cen
  Har product ke andar: '_' = default photos, aur har color ke naam ke saamne uski photos ki list.
  Color ki list khali ([]) ho to default photo + us color ki tint dikhti hai. */
 const IMG={
-'Classic Button-Down Shirt':{_:['https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=80'],'White':[],'Sky Blue':[],'Beige':[]},
+'Classic Button-Down Shirt':{_:['https://i.ibb.co/zhz8H6K7/cotton-long-sleeve-button-down-shirt-7-mpotyt3678m2-mppx6dh3-1.webp'],'White':['https://i.ibb.co/bjMJx456/a5c67fda5dcb515c02266cc7e870029e-2.jpg'],'natural green':['https://i.ibb.co/gFL32t6P/a5c67fda5dcb515c02266cc7e870029e.jpg'],'Beige':[]},
 'Modern Mandarin Collar Shirt':{_:['https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=80'],'White':[],'Sand':[],'Navy':[]},
 'Premium Olive Green Polo T-Shirt':{_:['https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=80'],'Olive Green':[],'Black':[],'Navy':[]},
 'Classic Crew Neck T-Shirt':{_:['https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=700&q=80'],'White':[],'Black':[],'Grey':[]},
 'Linen Summer Shirt':{_:['https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=80'],'Off-White':[],'Sage':[],'Navy':[]}
 };
-const HEX={'White':'#ffffff','Sky Blue':'#7db7e8','Beige':'#d9c3a0','Sand':'#d8c9a8','Navy':'#1f3a5f','Olive Green':'#6b7d3a','Black':'#111111','Grey':'#8a8a8a','Off-White':'#f1ead8','Sage':'#9caf88'};
+const HEX={'White':'#ffffff','Sky Blue':'#7db7e8','Beige':'#d9c3a0','Sand':'#d8c9a8','Navy':'#1f3a5f','Olive Green':'#6b7d3a','Black':'#111111','Grey':'#8a8a8a','Off-White':'#f1ead8','Sage':'#9caf88','natural green':'#6e7c69'};
 const P=[
 {n:'Classic Button-Down Shirt',tag:'Work & Casual',o:'Long-staple Egyptian cotton grown in mineral-rich soil.',t:'50s two-ply compact yarn engineered for a crisp finish.'},
 {n:'Modern Mandarin Collar Shirt',tag:'Signature Series',o:'Premium European flax linen blended with organic cotton.',t:'60s count fine-spun threads for an airy, sophisticated feel.'},
