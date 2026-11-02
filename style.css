@@ -77,3 +77,66 @@ th,td{padding:.5rem .6rem;border-bottom:1px solid rgba(0,0,0,.08);text-align:cen
 #sp{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}.rv,.hi{opacity:1;transform:none}}
+
+/* catalog rows: each catalog has its own title + swipe row, rows stack downward */
+#grid{display:block}
+.crow{margin-bottom:2.5rem}
+.crow-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;padding:0 .25rem}
+.crow-h h3{font-size:1.5rem;font-weight:600;letter-spacing:-.01em}
+.rowstrip{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;margin:0 -1rem;padding:.5rem 1rem 1.5rem;scroll-padding-left:1rem}
+.rowstrip::-webkit-scrollbar{display:none}
+.rowstrip>.card{flex:0 0 min(86%,360px);scroll-snap-align:start}.rowstrip>.card:hover{transform:none}
+@media(min-width:768px){.rowstrip{gap:1.5rem;margin:0;padding-left:0;padding-right:0;scroll-padding-left:0}}
+
+/* product panel: whole panel theme follows the selected color */
+@property --pa{syntax:'<color>';inherits:true;initial-value:#000}
+@property --pb{syntax:'<color>';inherits:true;initial-value:#000}
+@property --pc{syntax:'<color>';inherits:true;initial-value:#000}
+@property --pd{syntax:'<color>';inherits:true;initial-value:#000}
+@property --pe{syntax:'<color>';inherits:true;initial-value:#000}
+@property --pf{syntax:'<color>';inherits:true;initial-value:#000}
+@property --ink{syntax:'<color>';inherits:true;initial-value:#000}
+@property --ink2{syntax:'<color>';inherits:true;initial-value:#000}
+@property --ol{syntax:'<color>';inherits:true;initial-value:#000}
+@property --on{syntax:'<color>';inherits:true;initial-value:#000}
+@property --gbg{syntax:'<color>';inherits:true;initial-value:#000}
+@property --gbr{syntax:'<color>';inherits:true;initial-value:#000}
+#sh{--pa:#dbe6f4;--pb:#c6d6ee;--pc:#e6edf8;--pd:rgba(32,56,88,.3);--pe:rgba(91,127,176,.35);--pf:rgba(122,162,214,.35);--ink:#0f1b2d;--ink2:#57534e;--ol:#203858;--on:#fff;--gbg:rgba(255,255,255,.45);--gbr:rgba(255,255,255,.75);color:var(--ink)}
+#sh{background:radial-gradient(70% 35% at 0% 0%,var(--pd),transparent 70%),radial-gradient(60% 40% at 100% 25%,var(--pe),transparent 70%),radial-gradient(60% 35% at 20% 100%,var(--pf),transparent 70%),linear-gradient(160deg,var(--pa),var(--pb) 50%,var(--pc))!important;transition:transform .45s cubic-bezier(.2,.8,.2,1),--pa .6s ease,--pb .6s ease,--pc .6s ease,--pd .6s ease,--pe .6s ease,--pf .6s ease,--ink .6s ease,--ink2 .6s ease,--ol .6s ease,--on .6s ease,--gbg .6s ease,--gbr .6s ease!important}
+#sh .text-stone-500,#sh .text-stone-600,#sh .text-stone-700{color:var(--ink2)!important}
+#sh .text-stone-900{color:var(--ink)!important}
+#sh .glass{background:var(--gbg)!important;border-color:var(--gbr)!important;color:var(--ink)}
+#sh .btn{color:var(--on)}
+#sh .btn.ln{color:var(--ink);background:var(--gbg)}
+#sh .chip{background:var(--gbg);border-color:var(--gbr);color:var(--ink)}
+#sh .chip.on{background:var(--ink);color:var(--on);border-color:var(--ink)}
+#sh #shx,#shb .imgb button{color:#0f1b2d}
+.nosp #sp{display:none!important}
+
+/* desktop: cards fill the width (4 per row, centered); no sideways scroll, no arrows */
+@media(min-width:768px){
+.rowstrip{display:flex;flex-wrap:wrap;justify-content:center;overflow:visible;scroll-snap-type:none;gap:1.5rem;margin:0;padding:.5rem 0 1rem}
+.rowstrip>.card{flex:0 0 calc(25% - 1.125rem);min-width:240px;max-width:380px}
+.crow-h>div{display:none!important}
+}
+/* anchor links (#collection etc.) stop below the fixed header */
+html{scroll-padding-top:100px}
+
+/* product page (product.html): the panel becomes a normal full page, themed by the selected color */
+body[data-page=product]{--pa:#dbe6f4;--pb:#c6d6ee;--pc:#e6edf8;--pd:rgba(32,56,88,.3);--pe:rgba(91,127,176,.35);--pf:rgba(122,162,214,.35);--ink:#0f1b2d;--ink2:#57534e;--ol:#203858;--on:#fff;--gbg:rgba(255,255,255,.45);--gbr:rgba(255,255,255,.75);background:linear-gradient(160deg,var(--pa),var(--pb) 50%,var(--pc))!important;background-attachment:fixed!important;color:var(--ink);min-height:100vh;transition:--pa .6s ease,--pb .6s ease,--pc .6s ease,--pd .6s ease,--pe .6s ease,--pf .6s ease,--ink .6s ease,--ink2 .6s ease,--ol .6s ease,--on .6s ease,--gbg .6s ease,--gbr .6s ease}
+body[data-page=product] .blobs,body[data-page=product] #grid,body[data-page=product] #sbd,body[data-page=product] #shx{display:none!important}
+body[data-page=product] #shw{position:static!important}
+body[data-page=product] #sh{position:relative!important;inset:auto!important;transform:none!important;height:auto!important;max-width:640px!important;margin:0 auto!important;overflow:visible!important;background:none!important;border:0!important;border-radius:0!important;--pa:inherit;--pb:inherit;--pc:inherit;--pd:inherit;--pe:inherit;--pf:inherit;--ink:inherit;--ink2:inherit;--ol:inherit;--on:inherit;--gbg:inherit;--gbr:inherit}
+body[data-page=product] #shb{height:auto!important;overflow:visible!important;padding:0 1.25rem 4rem!important}
+
+/* product page top bar: always-visible Back button + round close (X) */
+.pbar{position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;align-items:center;gap:.75rem;max-width:640px;margin:0 auto;padding:.75rem 1.25rem}
+.pbar a{text-decoration:none;color:#0f1b2d}
+.pbar .pback{background:#fff;border:1.5px solid #0f1b2d;border-radius:999px;padding:.6rem 1.1rem;font-weight:600;font-size:.95rem;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.pbar .plogo b{letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
+.pbar .pclose{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#fff;border:1.5px solid #0f1b2d;font-size:1.2rem;font-weight:700;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+body[data-page=product] #sh{box-shadow:none!important}
+body[data-page=product] #shb{padding-top:1rem!important}
+/* close (X) of the bottom panel: clear on any color */
+#shx{background:#fff!important;border:1.5px solid #0f1b2d!important;color:#0f1b2d!important;min-width:44px;min-height:44px;box-shadow:0 2px 10px rgba(0,0,0,.25)!important}
+
